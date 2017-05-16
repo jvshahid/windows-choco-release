@@ -1,0 +1,15 @@
+---
+name: choco
+
+templates:
+  pre-start.ps1.erb: bin/pre-start.ps1
+
+packages: []
+
+properties:
+  packages:
+    description: "list of pacakges to install. each package must have the name key and optional version key"
+    default: []
+  post-install:
+    description: "command to run after the install finishes"
+    default: ""

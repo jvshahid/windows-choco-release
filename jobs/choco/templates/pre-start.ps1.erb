@@ -1,0 +1,19 @@
+Set-ExecutionPolicy Unrestricteed
+$ErrorActionPreference = Stop
+
+Remove-Item Env:\Path
+
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')
+
+SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+
+<% p("packages").each do |p| %>
+choco install <%= p["name"] %> <%= p["version"].nil? ? "" : "--version #{p["version"]}" %> -y --force
+if(!$?) {
+  throw "Choco failed"
+}
+<% end %>
+refreshenv
+
+<%= p("post-install").gsub(/\r\n/, "\n").gsub(/\n/, "\r\n") %>
+
