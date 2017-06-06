@@ -1,6 +1,6 @@
 ## Windows CHOCO Bosh-Release
 
-Provides a colocated job that can be used to install [chocolatey](chocolatey.org) packages
+Provides a colocated job that can be used to install [chocolatey](https://chocolatey.org) packages
 
 ### Usage in Cocnourse workers:
 
