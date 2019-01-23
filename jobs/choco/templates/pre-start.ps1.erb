@@ -4,6 +4,7 @@ Set-ExecutionPolicy Unrestricted
 
 Remove-Item Env:\Path
 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')
 
 SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
